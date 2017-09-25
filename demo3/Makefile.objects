@@ -1,0 +1,2 @@
+mytest.lo: /home/qinkaizhu/soft/lnmp/src/php-5.4.34/ext/mytest/mytest.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/home/qinkaizhu/soft/lnmp/src/php-5.4.34/ext/mytest $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /home/qinkaizhu/soft/lnmp/src/php-5.4.34/ext/mytest/mytest.c -o mytest.lo 
