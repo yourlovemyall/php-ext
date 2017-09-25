@@ -1,0 +1,10 @@
+myredis.lo: /home/qinkaizhu/soft/lnmp/src/php-5.4.34/ext/myredis/myredis.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/home/qinkaizhu/soft/lnmp/src/php-5.4.34/ext/myredis $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /home/qinkaizhu/soft/lnmp/src/php-5.4.34/ext/myredis/myredis.c -o myredis.lo 
+library.lo: /home/qinkaizhu/soft/lnmp/src/php-5.4.34/ext/myredis/library.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/home/qinkaizhu/soft/lnmp/src/php-5.4.34/ext/myredis $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /home/qinkaizhu/soft/lnmp/src/php-5.4.34/ext/myredis/library.c -o library.lo 
+$(phplibdir)/myredis.la: ./myredis.la
+	$(LIBTOOL) --mode=install cp ./myredis.la $(phplibdir)
+
+./myredis.la: $(shared_objects_myredis) $(MYREDIS_SHARED_DEPENDENCIES)
+	$(LIBTOOL) --mode=link $(CC) $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS) $(LDFLAGS) -o $@ -export-dynamic -avoid-version -prefer-pic -module -rpath $(phplibdir) $(EXTRA_LDFLAGS) $(shared_objects_myredis) $(MYREDIS_SHARED_LIBADD)
+
